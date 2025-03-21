@@ -12,7 +12,7 @@
     $fromname ="My Website Name";
     $fromemail = 'noreply@codeconia.com';  //if u dont have an email create one on your cpanel
 
-    $mailto = 'youemail@gmail.com';  //the email which u want to recv this email
+    $mailto = 'munnamunna205@gmail.com';  //the email which u want to recv this email
 
 
 
