@@ -1,7 +1,22 @@
-<form action="mail.php" method="post" enctype="multipart/form-data">
-    <input type="text" name="name" placeholder="Name"> <br>
-    <input type="text" name="email" placeholder="email"> <br>
-    <input type="text" name="message" placeholder="Message"> <br>
-    <input type="file" name="file"> <br>
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Send Attachment</title>
+</head>
+<body>
+  <h2>Send an Attachment</h2>
+  <form action="send_mail.php" method="POST" enctype="multipart/form-data">
+    <label for="name">Your Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label for="email">Your Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label for="file">Choose a file:</label><br>
+    <input type="file" name="attachment" required><br><br>
+
+    <input type="submit" value="Send">
+  </form>
+</body>
+</html>
