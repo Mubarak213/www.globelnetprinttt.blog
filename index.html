@@ -1,33 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Send Attachment (Local)</title>
+  <title>Upload to Google Drive</title>
 </head>
 <body>
-  <h2>Send an Attachment</h2>
-  <form action="upload.php" method="POST" enctype="multipart/form-data">
-    <label>Name:</label><br>
-    <input type="text" name="name" required><br><br>
+  <h2>Send Attachment via Google Drive</h2>
+  <form id="uploadForm">
+    <input type="text" name="name" placeholder="Your Name" required><br><br>
+    <input type="email" name="email" placeholder="Your Email" required><br><br>
 
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
-
-    <label>Subject:</label><br>
     <select name="subject" required>
+      <option value="">-- Select Subject --</option>
       <option value="Job Inquiry">Job Inquiry</option>
       <option value="Support Request">Support Request</option>
       <option value="Feedback">Feedback</option>
       <option value="Other">Other</option>
     </select><br><br>
 
-    <label>Message:</label><br>
-    <textarea name="message" rows="5"></textarea><br><br>
-
-    <label>Attachment:</label><br>
+    <textarea name="message" placeholder="Message"></textarea><br><br>
     <input type="file" name="attachment" required><br><br>
-
-    <input type="submit" value="Send">
+    <button type="submit">Send</button>
   </form>
+
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      const response = await fetch("https://script.google.com/macros/s/AKfycby6Gf3hKP8F7LJ6SyCX2tV2MMxU66Z8o5GLHZH4xns9pS64AIDBEcmvYI_4-yvuA4ACag/exec", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.text();
+      alert(result);
+    });
+  </script>
 </body>
 </html>
