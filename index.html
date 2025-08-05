@@ -1,13 +1,31 @@
-<form action="https://formspree.io/f/mblkzabz" method="POST" enctype="multipart/form-data">
-  <label for="name">Your Name:</label><br>
-  <input type="text" name="name" required><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Send Attachment (Local Server)</title>
+</head>
+<body>
 
-  <label for="email">Your Email:</label><br>
-  <input type="email" name="email" required><br><br>
+  <h2>Send an Attachment</h2>
 
-  <label for="attachment">Choose a file:</label><br>
-  <input type="file" name="attachment" required><br><br>
+  <form action="send_mail.php" method="POST" enctype="multipart/form-data">
+    <label>Your Name:</label><br>
+    <input type="text" name="name" required><br><br>
 
-  <button type="submit">Send</button>
-</form>
+    <label>Your Email:</label><br>
+    <input type="email" name="email" required><br><br>
 
+    <label>Subject:</label><br>
+    <select name="subject" required>
+      <option value="">-- Select Subject --</option>
+      <option value="Job Inquiry">Job Inquiry</option>
+      <option value="Support Request">Support Request</option>
+      <option value="Feedback">Feedback</option>
+      <option value="Other">Other</option>
+    </select><br><br>
+
+    <label>Message:</label><br>
+    <textarea name="message" rows="5" required></textarea><br><br>
+
+    <label>Attachment:</label><br>
+    <input type="file"
